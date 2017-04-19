@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>aoife</artifactId>
+        <groupId>org.hemoo.quickexample</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>am-server</artifactId>
+
+
+
+    <dependencies>
+
+        <!-- START: 模块依赖: service, configuration and web-->
+        <dependency>
+            <groupId>org.hemoo.quickexample</groupId>
+            <artifactId>am-service</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hemoo.quickexample</groupId>
+            <artifactId>am-configuration</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.hemoo.quickexample</groupId>
+            <artifactId>am-web</artifactId>
+            <version>1.0.0</version>
+        </dependency>
+        <!-- END: 模块依赖-->
+
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.2</version>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

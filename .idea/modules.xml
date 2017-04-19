@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/AoifeMotan.iml" filepath="$PROJECT_DIR$/AoifeMotan.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-adocs/am-adocs.iml" filepath="$PROJECT_DIR$/am-adocs/am-adocs.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-configuration/am-configration.iml" filepath="$PROJECT_DIR$/am-configuration/am-configration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-configuration/am-configuration.iml" filepath="$PROJECT_DIR$/am-configuration/am-configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-core/am-core.iml" filepath="$PROJECT_DIR$/am-core/am-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-dao/am-dao.iml" filepath="$PROJECT_DIR$/am-dao/am-dao.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-server/am-server.iml" filepath="$PROJECT_DIR$/am-server/am-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-service/am-service.iml" filepath="$PROJECT_DIR$/am-service/am-service.iml" />
+      <module fileurl="file://$PROJECT_DIR$/am-web/am-web.iml" filepath="$PROJECT_DIR$/am-web/am-web.iml" />
+    </modules>
+  </component>
+</project>

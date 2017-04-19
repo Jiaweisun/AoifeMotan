@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hemoo.aoifeMotan.dao.PasPromotionDemotionChangeMapper" >
+  <resultMap id="BaseResultMap" type="org.hemoo.aoifeMotan.domain.PasPromotionDemotionChange" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="emp_code" property="empCode" jdbcType="VARCHAR" />
+    <result column="original_company" property="originalCompany" jdbcType="VARCHAR" />
+    <result column="adjust_company" property="adjustCompany" jdbcType="VARCHAR" />
+    <result column="adjust_com_name" property="adjustComName" jdbcType="VARCHAR" />
+    <result column="original_pos" property="originalPos" jdbcType="VARCHAR" />
+    <result column="adjust_pos" property="adjustPos" jdbcType="VARCHAR" />
+    <result column="adjust_pos_name" property="adjustPosName" jdbcType="VARCHAR" />
+    <result column="original_salary" property="originalSalary" jdbcType="DECIMAL" />
+    <result column="adjust_salary" property="adjustSalary" jdbcType="DECIMAL" />
+    <result column="active_date" property="activeDate" jdbcType="DATE" />
+    <result column="change_type" property="changeType" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+    <result column="delete_flag" property="deleteFlag" jdbcType="TINYINT" />
+    <result column="create_by" property="createBy" jdbcType="VARCHAR" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="update_by" property="updateBy" jdbcType="VARCHAR" />
+    <result column="update_time" property="updateTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, emp_code, original_company, adjust_company, adjust_com_name, original_pos, adjust_pos, 
+    adjust_pos_name, original_salary, adjust_salary, active_date, change_type, remark, 
+    delete_flag, create_by, create_time, update_by, update_time
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from pas_promotion_demotion_change
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from pas_promotion_demotion_change
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="org.hemoo.aoifeMotan.domain.PasPromotionDemotionChange" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into pas_promotion_demotion_change (emp_code, original_company, adjust_company, 
+      adjust_com_name, original_pos, adjust_pos, 
+      adjust_pos_name, original_salary, adjust_salary, 
+      active_date, change_type, remark, 
+      delete_flag, create_by, create_time, 
+      update_by, update_time)
+    values (#{empCode,jdbcType=VARCHAR}, #{originalCompany,jdbcType=VARCHAR}, #{adjustCompany,jdbcType=VARCHAR}, 
+      #{adjustComName,jdbcType=VARCHAR}, #{originalPos,jdbcType=VARCHAR}, #{adjustPos,jdbcType=VARCHAR}, 
+      #{adjustPosName,jdbcType=VARCHAR}, #{originalSalary,jdbcType=DECIMAL}, #{adjustSalary,jdbcType=DECIMAL}, 
+      #{activeDate,jdbcType=DATE}, #{changeType,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}, 
+      #{deleteFlag,jdbcType=TINYINT}, #{createBy,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateBy,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="org.hemoo.aoifeMotan.domain.PasPromotionDemotionChange" >
+    <selectKey resultType="java.lang.Long" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into pas_promotion_demotion_change
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="empCode != null" >
+        emp_code,
+      </if>
+      <if test="originalCompany != null" >
+        original_company,
+      </if>
+      <if test="adjustCompany != null" >
+        adjust_company,
+      </if>
+      <if test="adjustComName != null" >
+        adjust_com_name,
+      </if>
+      <if test="originalPos != null" >
+        original_pos,
+      </if>
+      <if test="adjustPos != null" >
+        adjust_pos,
+      </if>
+      <if test="adjustPosName != null" >
+        adjust_pos_name,
+      </if>
+      <if test="originalSalary != null" >
+        original_salary,
+      </if>
+      <if test="adjustSalary != null" >
+        adjust_salary,
+      </if>
+      <if test="activeDate != null" >
+        active_date,
+      </if>
+      <if test="changeType != null" >
+        change_type,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag,
+      </if>
+      <if test="createBy != null" >
+        create_by,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="updateBy != null" >
+        update_by,
+      </if>
+      <if test="updateTime != null" >
+        update_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="empCode != null" >
+        #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="originalCompany != null" >
+        #{originalCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustCompany != null" >
+        #{adjustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustComName != null" >
+        #{adjustComName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPos != null" >
+        #{originalPos,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustPos != null" >
+        #{adjustPos,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustPosName != null" >
+        #{adjustPosName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalSalary != null" >
+        #{originalSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustSalary != null" >
+        #{adjustSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="activeDate != null" >
+        #{activeDate,jdbcType=DATE},
+      </if>
+      <if test="changeType != null" >
+        #{changeType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        #{deleteFlag,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null" >
+        #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.hemoo.aoifeMotan.domain.PasPromotionDemotionChange" >
+    update pas_promotion_demotion_change
+    <set >
+      <if test="empCode != null" >
+        emp_code = #{empCode,jdbcType=VARCHAR},
+      </if>
+      <if test="originalCompany != null" >
+        original_company = #{originalCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustCompany != null" >
+        adjust_company = #{adjustCompany,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustComName != null" >
+        adjust_com_name = #{adjustComName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalPos != null" >
+        original_pos = #{originalPos,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustPos != null" >
+        adjust_pos = #{adjustPos,jdbcType=VARCHAR},
+      </if>
+      <if test="adjustPosName != null" >
+        adjust_pos_name = #{adjustPosName,jdbcType=VARCHAR},
+      </if>
+      <if test="originalSalary != null" >
+        original_salary = #{originalSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustSalary != null" >
+        adjust_salary = #{adjustSalary,jdbcType=DECIMAL},
+      </if>
+      <if test="activeDate != null" >
+        active_date = #{activeDate,jdbcType=DATE},
+      </if>
+      <if test="changeType != null" >
+        change_type = #{changeType,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="deleteFlag != null" >
+        delete_flag = #{deleteFlag,jdbcType=TINYINT},
+      </if>
+      <if test="createBy != null" >
+        create_by = #{createBy,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateBy != null" >
+        update_by = #{updateBy,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        update_time = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.hemoo.aoifeMotan.domain.PasPromotionDemotionChange" >
+    update pas_promotion_demotion_change
+    set emp_code = #{empCode,jdbcType=VARCHAR},
+      original_company = #{originalCompany,jdbcType=VARCHAR},
+      adjust_company = #{adjustCompany,jdbcType=VARCHAR},
+      adjust_com_name = #{adjustComName,jdbcType=VARCHAR},
+      original_pos = #{originalPos,jdbcType=VARCHAR},
+      adjust_pos = #{adjustPos,jdbcType=VARCHAR},
+      adjust_pos_name = #{adjustPosName,jdbcType=VARCHAR},
+      original_salary = #{originalSalary,jdbcType=DECIMAL},
+      adjust_salary = #{adjustSalary,jdbcType=DECIMAL},
+      active_date = #{activeDate,jdbcType=DATE},
+      change_type = #{changeType,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR},
+      delete_flag = #{deleteFlag,jdbcType=TINYINT},
+      create_by = #{createBy,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_by = #{updateBy,jdbcType=VARCHAR},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+</mapper>
