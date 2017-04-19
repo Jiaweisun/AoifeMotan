@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="org.hemoo.aoifeMotan.dao.PasSystemLogMapper" >
+  <resultMap id="BaseResultMap" type="org.hemoo.aoifeMotan.domain.PasSystemLog" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="create_at" property="createAt" jdbcType="TIMESTAMP" />
+    <result column="create_ip" property="createIp" jdbcType="CHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="org.hemoo.aoifeMotan.domain.PasSystemLogWithBLOBs" extends="BaseResultMap" >
+    <result column="website" property="website" jdbcType="LONGVARCHAR" />
+    <result column="uri" property="uri" jdbcType="LONGVARCHAR" />
+    <result column="detail" property="detail" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, user_id, create_at, create_ip
+  </sql>
+  <sql id="Blob_Column_List" >
+    website, uri, detail
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from pas_system_log
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from pas_system_log
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="org.hemoo.aoifeMotan.domain.PasSystemLogWithBLOBs" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into pas_system_log (user_id, create_at, create_ip, 
+      website, uri, detail
+      )
+    values (#{userId,jdbcType=INTEGER}, #{createAt,jdbcType=TIMESTAMP}, #{createIp,jdbcType=CHAR}, 
+      #{website,jdbcType=LONGVARCHAR}, #{uri,jdbcType=LONGVARCHAR}, #{detail,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="org.hemoo.aoifeMotan.domain.PasSystemLogWithBLOBs" >
+    <selectKey resultType="java.lang.Integer" keyProperty="id" order="AFTER" >
+      SELECT LAST_INSERT_ID()
+    </selectKey>
+    insert into pas_system_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        user_id,
+      </if>
+      <if test="createAt != null" >
+        create_at,
+      </if>
+      <if test="createIp != null" >
+        create_ip,
+      </if>
+      <if test="website != null" >
+        website,
+      </if>
+      <if test="uri != null" >
+        uri,
+      </if>
+      <if test="detail != null" >
+        detail,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null" >
+        #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createIp != null" >
+        #{createIp,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        #{website,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uri != null" >
+        #{uri,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detail != null" >
+        #{detail,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="org.hemoo.aoifeMotan.domain.PasSystemLogWithBLOBs" >
+    update pas_system_log
+    <set >
+      <if test="userId != null" >
+        user_id = #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="createAt != null" >
+        create_at = #{createAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createIp != null" >
+        create_ip = #{createIp,jdbcType=CHAR},
+      </if>
+      <if test="website != null" >
+        website = #{website,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="uri != null" >
+        uri = #{uri,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="detail != null" >
+        detail = #{detail,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="org.hemoo.aoifeMotan.domain.PasSystemLogWithBLOBs" >
+    update pas_system_log
+    set user_id = #{userId,jdbcType=INTEGER},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      create_ip = #{createIp,jdbcType=CHAR},
+      website = #{website,jdbcType=LONGVARCHAR},
+      uri = #{uri,jdbcType=LONGVARCHAR},
+      detail = #{detail,jdbcType=LONGVARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="org.hemoo.aoifeMotan.domain.PasSystemLog" >
+    update pas_system_log
+    set user_id = #{userId,jdbcType=INTEGER},
+      create_at = #{createAt,jdbcType=TIMESTAMP},
+      create_ip = #{createIp,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
