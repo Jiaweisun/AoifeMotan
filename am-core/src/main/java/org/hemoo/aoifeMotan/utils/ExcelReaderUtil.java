@@ -37,7 +37,7 @@ public class ExcelReaderUtil {
         //获取excel的所有表单页
         int  sheetCount = workBook.getNumberOfSheets();
 
-        ArrayList<HSSFSheet> sheets = new ArrayList<>();
+        ArrayList<HSSFSheet> sheets = new ArrayList<HSSFSheet>();
         HSSFSheet sheet = null;
         for(int x=0;x<sheetCount; x++){
             String sheetName = workBook.getSheetName(x);
